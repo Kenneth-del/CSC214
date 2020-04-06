@@ -25,4 +25,4 @@ This includes pulling user information and passwords from their respective datab
 getting the user input in the first place. 
 Please be mindful of most reasonable input checking scenarios when validating user input. The security hashing function is 
 written. All that needs to be done to implement it is to create an object and pass the user password to it. 
-Set the used password to that hash. In addition, when creating test data use the password hash function in a simi
+Set the used password to that hash. In addition, when creating test data use the password hash function in a similar manner.
