@@ -4,27 +4,27 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.paint.*?>
-<?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<AnchorPane fx:controller="group2.SceneLogIn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0A6B34;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0A6B34;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group2.SceneLogIn">
    <children>
-      <AnchorPane layoutX="169.0" layoutY="46.0" prefHeight="309.0" prefWidth="263.0" style="-fx-background-color: #F7BC0A;">
+      <AnchorPane layoutX="151.0" layoutY="62.0" prefHeight="277.0" prefWidth="283.0" style="-fx-background-color: #F7BC0A;">
          <children>
-            <JFXTextField fx:id ="UID" focusColor="#055a17" layoutX="49.0" layoutY="95.0" prefHeight="27.0" prefWidth="166.0" promptText="Student ID" style="-fx-background-color: #fffffff;" unFocusColor="#a2bab3" />
-            <JFXPasswordField fx:id="UPW" focusColor="#055a17" layoutX="49.0" layoutY="147.0" prefHeight="27.0" prefWidth="166.0" promptText="Password" unFocusColor="#a2bab3" />
-            <JFXButton onAction="#handleLoginButtonAction" layoutX="49.0" layoutY="227.0" style="-fx-background-color: #0A6B34;" text="Sign in" textFill="WHITE" />
-            <Text layoutX="62.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login with your Del-Tech account" wrappingWidth="185.0" />
-            <ImageView fitHeight="50.0" fitWidth="48.0" layoutX="9.0" layoutY="13.0">
+            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="17.0">
                <image>
                   <Image url="@DTCC%20sign.png" />
                </image>
             </ImageView>
+            <Text layoutX="70.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login with your Del-Tech account" />
+            <TextField fx:id= "UID" layoutX="61.0" layoutY="99.0" promptText="Student ID" />
+            <PasswordField fx:id="UPW" layoutX="61.0" layoutY="158.0" promptText="Password" />
+            <Button layoutX="61.0" layoutY="218.0" mnemonicParsing="false" style="-fx-background-color: #0A6B34;" text="Sign in" textFill="WHITE" onAction="#handleLoginButtonAction" />
          </children>
       </AnchorPane>
-      <JFXButton layoutX="497.0" layoutY="19.0" style="-fx-background-color: #F7BC0A;" text="Quick Help" textFill="WHITE" />
+      <Button layoutX="491.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #F7BC0A;" text="Quick Help" textFill="WHITE" onAction="#handleQuickHelpAction" />
    </children>
 </AnchorPane>

@@ -1,13 +1,14 @@
 package group2;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 /*
  * This is the primary controller that will handle the
  * initial login UI. This will launch the login prompt
@@ -17,8 +18,8 @@ import javafx.scene.control.TextField;
  *
  */
 public class SceneLogIn {
-	private ArrayList<String> studentID;
-	private ArrayList<String> studentPW;
+	public ArrayList<String> studentID;
+	public ArrayList<String> studentPW;
 	/* these are the property fields from the fxml
 	 * they will hold what values the user enters from there they can be validated
 	 */
@@ -26,11 +27,11 @@ public class SceneLogIn {
 @FXML private TextField UID;
 @FXML private PasswordField UPW;
 
-	SceneLogIn()
+	public SceneLogIn()
 	{
 		// Initializes student IDs and passwords to compare and validate
-		this.setStudentID(getStudentID());
-		this.setStudentPW(getStudentPasswords());
+		//this.setStudentID(getStudentID());
+		//this.setStudentPW(getStudentPasswords());
 	}
 
 	/* A work around to get the initial scene loaded in start
@@ -39,17 +40,18 @@ public class SceneLogIn {
 
 	public Parent generateParent() throws IOException {
 		Parent mainFXML = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
-
-		//FXMLLoader fxml = new FXMLLoader(getClass().getResource("Kiosk_login.fxml"));
+/*
+		FXMLLoader fxml = new FXMLLoader(getClass().getResource("Kiosk_login.fxml"));
 		//fxml.setRoot(this);
-		//fxml.setController(this);
-		/*
+		fxml.setController(this);
+
 		try {
 			fxml.load();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
+		*/
 		return mainFXML;
 	}
 
@@ -64,10 +66,21 @@ public class SceneLogIn {
 	 */
 	public void handleLoginButtonAction() throws IOException
 	{
-		if (passwordIsValid() && userIDIsvalid())
+		//if (passwordIsValid() && userIDIsvalid())
+		//{
+		Parent userInfo;
+		userInfo = FXMLLoader.load(getClass().getResource("KioskHome.fxml"));
+
+		Stage newStage = Driver.parentWindow;
+		newStage.getScene().setRoot(userInfo);
+		
+			/*
+		//}
+		else
 		{
-			SceneViewUserInformation x = new SceneViewUserInformation();
+			SceneHome self = new SceneHome();
 		}
+		*/
 		/*
 		Parent userInfo = null;
 		userInfo = FXMLLoader.load(getClass().getResource("Kiosk_StuInfo.fxml"));
@@ -75,7 +88,11 @@ public class SceneLogIn {
 
 		newStage = Driver.parentWindow;
 		newStage.getScene().setRoot(userInfo);
-		*/
+	*/
+	}
+	public void handleQuickHelpAction() throws IOException
+	{
+		SceneQuickHelp QH = new SceneQuickHelp();
 	}
 
 
@@ -86,6 +103,7 @@ public class SceneLogIn {
 	 *
 	 */
 	//TODO get the studentIds from the DB
+
 	private ArrayList<String> getStudentIds()
 	{
 		return null;

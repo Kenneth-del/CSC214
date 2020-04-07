@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class Driver extends Application{
 	public static void main(String[] args) {
-        launch(args);
+        Application.launch(args);
     }
 	/*
 	 * This is the primary or parent stage that will be used throughout
@@ -29,6 +29,7 @@ public class Driver extends Application{
     	// standard JFX UI stuff
     	stage.setScene(new Scene(controllerObject.generateParent())); // see SceneLogIn fro generateParent info
         stage.setTitle("Kiosk");
+        //stage.setFullScreen(true);
         stage.show();
     }
 }
