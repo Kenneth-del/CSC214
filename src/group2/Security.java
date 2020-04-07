@@ -4,7 +4,9 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+/*
+ * Adapted from code found here: https://www.geeksforgeeks.org/sha-256-hash-in-java/
+ */
 public class Security {
 	private String passwordHash;
 	private String password;
