@@ -48,7 +48,7 @@
                </font>
             </Text>
             <Button layoutX="250.0" layoutY="306.0" mnemonicParsing="false" style="-fx-background-color: #e1ae07;" text="Edit" onAction="#handleEditInformation"/>
-            <Button layoutX="439.0" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" />
+            <Button layoutX="439.0" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" onAction ="#handleBack" />
          </children>
       </AnchorPane>
    </children>

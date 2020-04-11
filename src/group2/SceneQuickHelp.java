@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class SceneQuickHelp extends Scene {
 
-	SceneQuickHelp() throws IOException
+	public SceneQuickHelp() throws IOException
 	{
 		startScene();
 	}
@@ -16,7 +16,7 @@ public class SceneQuickHelp extends Scene {
 	@Override
 	public void startScene() throws IOException {
 		Parent userInfo;
-		userInfo = FXMLLoader.load(getClass().getResource("Kiosk_StuInfo.fxml"));
+		userInfo = FXMLLoader.load(getClass().getResource("Quick help.fxml"));
 		Stage newStage;
 
 		newStage = Driver.parentWindow;

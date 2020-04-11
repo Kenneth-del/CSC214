@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+      <bottom>
+        <AnchorPane prefHeight="40.0" prefWidth="600.0" style="-fx-background-color:#0A6B34&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;">
+          <children>
+            <TextField layoutX="0.0" layoutY="9.0" prefWidth="200.0" text="Account balance :" />
+          </children>
+        </AnchorPane>
+      </bottom>
+      <center>
+        <VBox fillWidth="true" opacity="1.0" prefHeight="260.0" prefWidth="374.0" style="-fx-background-color: #F7BC0A&#10;" visible="true">
+          <children>
+            <Label prefHeight="40.0" prefWidth="151.0" text="Transcation List" textFill="#086600">
+              <font>
+                <Font name="System Bold" size="16.0" />
+              </font>
+            </Label>
+            <GridPane disable="false" focusTraversable="false" gridLinesVisible="true" prefHeight="125.00009999999747" prefWidth="430.0" snapToPixel="true" visible="true">
+              <children>
+                <TextField editable="true" prefWidth="95.0" style="-fx-background-color: #F7BC0A" text="Transcation  ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField prefWidth="200.0" style="-fx-background-color: #F7BC0A" text="Transcation amount" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextField prefWidth="200.0" style="-fx-background-color: #F7BC0A" text="Time /Date" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <TextField prefWidth="200.0" style="-fx-background-color: #F7BC0A" text="Status" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                <TextField prefWidth="200.0" style="-fx-background-color: #F7BC0A" text="Trans 1" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField prefWidth="200.0" style="-fx-background-color: #F7BC0A" text="Trans 2" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField prefWidth="200.0" style="-fx-background-color: #F7BC0A" text="Trans 3" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="70.0" />
+                <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="98.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="125.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="0.0" prefWidth="74.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="72.0" minWidth="10.0" prefWidth="63.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.0" minHeight="1.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+        </VBox>
+      </center>
+      <right>
+        <VBox prefHeight="273.9999000000025" prefWidth="170.0" style="-fx-background-color: #F7BC0A">
+          <children>
+            <Label prefHeight="33.0" prefWidth="139.0" text="Print Transcation">
+              <font>
+                <Font name="System Bold" size="15.0" />
+              </font>
+              <textFill>
+                <Color blue="0.000" green="0.400" red="0.128" fx:id="x1" />
+              </textFill>
+            </Label>
+            <Button focusTraversable="true" mnemonicParsing="false" prefHeight="33.000099999997474" prefWidth="165.00009999999747" style="-fx-border-color : Green" text="Click here to print" textAlignment="LEFT" textFill="WHITE" visible="true">
+              <font>
+                <Font name="System Italic" size="12.0" fx:id="x2" />
+              </font>
+            </Button>
+            <Label prefHeight="33.0" prefWidth="165.0" text="View Full Transcation list " textFill="$x1">
+              <font>
+                <Font name="System Bold" size="13.0" />
+              </font>
+            </Label>
+            <Button font="$x2" mnemonicParsing="false" prefHeight="40.0" prefWidth="184.0" style="-fx-border-color: Green" text="Click here to view more" textFill="WHITE" />
+          </children>
+        </VBox>
+      </right>
+      <top>
+        <HBox id="" prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: #0A6B34">
+          <children>
+            <Label prefHeight="86.0" prefWidth="461.0" text="Account Summary" textAlignment="RIGHT" textFill="#ffc633">
+              <font>
+                <Font name="MS PGothic" size="50.0" />
+              </font>
+            </Label>
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

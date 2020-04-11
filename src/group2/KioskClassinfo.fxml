@@ -14,7 +14,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="458.0" layoutY="15.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" />
+            <Button layoutX="458.0" layoutY="15.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" onAction ="#handleBack"/>
          </children>
       </AnchorPane>
       <GridPane gridLinesVisible="true" layoutX="23.0" layoutY="119.0" prefHeight="128.0" prefWidth="556.0">

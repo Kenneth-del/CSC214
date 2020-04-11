@@ -14,7 +14,7 @@ public class SceneViewRegistration extends Scene {
 	{
 
 	}
-	
+
 	public ArrayList<Course> getRegInfo()
 	{
 		return null;
@@ -24,6 +24,11 @@ public class SceneViewRegistration extends Scene {
 
 	}
 
+	public void handleBack() throws IOException
+	{
+		SceneHome SH = new SceneHome();
+		SH.startScene();
+	}
 	 void startScene() throws IOException {
 
 		Parent userInfo;

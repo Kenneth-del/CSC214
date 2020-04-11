@@ -2,12 +2,15 @@ package group2;
 
 import java.io.IOException;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class SceneHome  {
+public class SceneHome extends Scene {
 
+@FXML Text UN;
 	public SceneHome()  throws IOException
 	{
 
@@ -23,16 +26,17 @@ public class SceneHome  {
 
 	}
 	*/
-	
+
 	public void handleStudentInformation() throws IOException
 	{
 		SceneViewUserInformation VUI = new SceneViewUserInformation();
 		VUI.startScene();
 	}
-	/*public void handleAccountSummary()
+	public void handleAccountSummary() throws IOException
 	{
-
-	}*/
+		SceneViewAccountSummary VAS = new SceneViewAccountSummary();
+		VAS.startScene();
+	}
 	public void handleClassInformation() throws IOException
 	{
 		SceneViewRegistration VR = new SceneViewRegistration();
@@ -63,9 +67,25 @@ public class SceneHome  {
 		GenerateBookStoreWebView BS = new GenerateBookStoreWebView();
 		BS.startScene();
 	}
-	//public void handleQuickHelp()
-	//{
+	public void handleQuickHelp() throws IOException
+	{
 
-	//}
+		SceneQuickHelp QHO = new SceneQuickHelp();
+	}
 
+	public void handleSignOut() throws IOException
+	{
+		SceneLogIn LI = new SceneLogIn();
+		LI.startScene();
+	}
+	@Override
+	void startScene() throws IOException {
+		Parent userInfo;
+		userInfo = FXMLLoader.load(getClass().getResource("KioskHome.fxml"));
+		Stage newStage;
+
+		newStage = Driver.parentWindow;
+		newStage.getScene().setRoot(userInfo);
+
+	}
 }

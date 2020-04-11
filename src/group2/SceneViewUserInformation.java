@@ -26,6 +26,11 @@ public class SceneViewUserInformation extends Scene {
 		SceneEditUserInformation EUI = new SceneEditUserInformation();
 		EUI.startScene();
 	}
+	public void handleBack() throws IOException
+	{
+		SceneHome SH = new SceneHome();
+		SH.startScene();
+	}
 	public double getGPA()
 	{
 		return 1;
