@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e1ae07;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="68.0" prefWidth="600.0" style="-fx-background-color: #0A6B34;">
+         <children>
+            <Text fill="#e1ae07" layoutX="225.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Summary" wrappingWidth="149.94873046875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="458.0" layoutY="15.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="121.0" layoutY="328.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="141.0" style="-fx-background-color: #0A6B34;" text="Print Transaction" textFill="#e1ae07" />
+      <Label layoutX="27.0" layoutY="82.0" text="Transaction LIst">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView layoutX="121.0" layoutY="106.0" prefHeight="200.0" prefWidth="348.0">
+        <columns>
+          <TableColumn prefWidth="108.0" text="Transaction ID" />
+          <TableColumn prefWidth="84.0" text="Amount" />
+            <TableColumn prefWidth="74.0" text="Date" />
+            <TableColumn prefWidth="81.0" text="Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="332.0" layoutY="333.0" text="Balance:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Text layoutX="400.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxx" />
+   </children>
+</AnchorPane>
