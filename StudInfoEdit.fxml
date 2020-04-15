@@ -5,51 +5,133 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e1ae07;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #e1ae07;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="22.0" layoutY="27.0" prefHeight="347.0" prefWidth="556.0" style="-fx-background-color: #0A6B34;">
+      <AnchorPane layoutX="22.0" layoutY="27.0" prefHeight="347.0" prefWidth="556.0" style="-fx-background-color: #0A6B34;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
-            <GridPane layoutX="35.0" layoutY="101.0">
-               <children>
-                  <TextField promptText="Show existed info, but editable" style="-fx-background-color: #e1ae07;" text="Show existed info, but editable" GridPane.columnIndex="1" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="116.7158203125" />
-                  <TextField prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age" textAlignment="CENTER" wrappingWidth="120.22900390625" GridPane.rowIndex="1" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" textAlignment="CENTER" wrappingWidth="118.22900390625" GridPane.rowIndex="2" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GPA" textAlignment="CENTER" wrappingWidth="120.22900390625" GridPane.rowIndex="3" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address" textAlignment="CENTER" wrappingWidth="119.22900390625" GridPane.rowIndex="4" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Contact" textAlignment="CENTER" wrappingWidth="118.9736328125" GridPane.rowIndex="5" />
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="120.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="10.0" prefWidth="350.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <Text fill="#e1ae07" layoutX="240.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Information">
+            <Text fill="#e1ae07" layoutX="491.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Information">
                <font>
-                  <Font size="15.0" />
+                  <Font size="33.0" />
                </font>
             </Text>
-            <Text fill="#e1ae07" layoutX="203.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Information">
+            <Button layoutX="568.0" layoutY="668.0" mnemonicParsing="false" style="-fx-background-color: #e1ae07;" text="Save">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+            <Button layoutX="1005.0" layoutY="20.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="191.0" style="-fx-background-color: #e1ae07;" text="Back to Home" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button layoutX="26.0" layoutY="20.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="191.0" style="-fx-background-color: #e1ae07;" text="Sign out" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <GridPane layoutX="55.0" layoutY="150.0" prefHeight="480.0" prefWidth="1119.0">
+         <children>
+            <TextField prefHeight="38.0" prefWidth="840.0" style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " textAlignment="RIGHT" wrappingWidth="243.7158203125">
+               <font>
+                  <Font size="22.0" />
+               </font>
             </Text>
-            <Button layoutX="250.0" layoutY="306.0" mnemonicParsing="false" style="-fx-background-color: #e1ae07;" text="Save" />
-            <Button layoutX="439.0" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" />
+            <TextField prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email: " textAlignment="RIGHT" wrappingWidth="244.22900390625" GridPane.rowIndex="1">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number: " textAlignment="RIGHT" wrappingWidth="242.22900390625" GridPane.rowIndex="2">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " textAlignment="RIGHT" wrappingWidth="244.22900390625" GridPane.rowIndex="3">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Contact" textAlignment="CENTER" wrappingWidth="840.9736328125" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " textAlignment="RIGHT" wrappingWidth="243.7158203125" GridPane.rowIndex="5">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email: " textAlignment="RIGHT" wrappingWidth="244.22900390625" GridPane.rowIndex="6">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number: " textAlignment="RIGHT" wrappingWidth="242.22900390625" GridPane.rowIndex="7">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " textAlignment="RIGHT" wrappingWidth="244.22900390625" GridPane.rowIndex="8">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField prefHeight="39.0" prefWidth="840.0" style="-fx-background-color: #e1ae07;" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
          </children>
-      </AnchorPane>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="268.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="840.0" minWidth="10.0" prefWidth="840.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
    </children>
 </AnchorPane>

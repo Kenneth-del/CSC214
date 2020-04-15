@@ -108,6 +108,11 @@
                </children>
             </GridPane>
             <ListView layoutX="295.0" layoutY="474.0" prefHeight="175.0" prefWidth="805.0" style="-fx-background-color: #F3F781;" />
+            <Button layoutX="23.0" layoutY="20.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="189.0" style="-fx-background-color: #e1ae07;" text="Sign out" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

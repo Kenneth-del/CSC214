@@ -134,6 +134,11 @@
                <font>
                   <Font size="24.0" />
                </font></Button>
+            <Button layoutX="23.0" layoutY="23.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #e1ae07;" text="Sign out" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
