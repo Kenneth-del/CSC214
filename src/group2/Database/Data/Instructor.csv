@@ -1,0 +1,21 @@
+id,FirstName,LastName,OfficeBuilding,OfficeNumber,Email,PhoneNumber
+1,Hseuh-Ming,Lu,"George West",269,tommy.lu@dtcc.edu,3025735475
+2,Frank,Sciallo,"George West",268,frank.sciallo@dtcc.edu,3024345564
+3,Jin,An,"George West",263,jin.an@dtcc.edu,3025735453
+4,Tianzhong,Ding,"George West",255,tding@dtcc.edu,3025735455
+5,Justin,Schaller,NULL,NULL,"justin.schaller@dtcc.edu	",3025715300
+6,Vincent,Monsen,NULL,NULL,"vincent.monsen@dtcc.edu	",NULL
+7,Billy,Machage,"George West",250,billy.machage@dtcc.edu,3026575162
+8,Megan,Smith,NULL,NULL,mrice13@dtcc.edu,NULL
+9,Michelle,Smith,"George South East",210F,msmit164@dtcc.edu,3026575193
+10,Rita,Wierzbicki,NULL,NULL,rwierzbi@dtcc.edu,3025715300
+11,Chris,Mcbride,NULL,NULL,"cmcbrid3@dtcc.edu	",NULL
+12,Nadia,Colon,NULL,NULL,"ncolon4@dtcc.edu	",3024345547
+13,Jennifer,Hutt,"Wilmington South East",210H,jennifer.hutt@dtcc.edu,3025715324
+14,Jennifer,Baker,Stanton,B132,Jennifer.Baker@dtcc.edu,3024543909
+15,Kara-Zoe,McGonegal,Stanton,B134,kmcgoneg@dtcc.edu,3024533773
+16,Josepha,Paola,Stanton,B133,jpaola@dtcc.edu,3024533765
+17,Wayne,Manrakhan,Stanton,B134,wmanrakh@dtcc.edu,3022923821
+18,Anupama,Bhat,NULL,NULL,abhat@dtcc.edu,NULL
+19,Dimitry,Gusakov,NULL,NULL,"dgusakov@dtcc.edu	",NULL
+20,John,Bertelsen,NULL,NULL,jbertels@dtcc.edu,3025715300

@@ -1,0 +1,23 @@
+id,CourseName,Subject,CourseNumber,CreditHours
+1,"First Year Seminar",SSC,100,1
+2,"Computer Science I",CSC,114,4
+3,"Crit Thinking & Acad Writing",ENG,101,3
+4,"Precalculus ",MAT,190,4
+5,"Computer Science II",CSC,164,4
+6,"Computer Organization ",CIS,130,3
+7,"Composition and Research",ENG,102,3
+8,"U. S. History: Pre-Civil War",HIS,111,3
+9,"Calculus I",MAT,281,4
+10,"Computer Science III",CSC,214,4
+11,"Systems Programming",CSC,210,3
+12,Microeconomics,ECO,122,3
+13,"Oral Communications",ENG,124,3
+14,"Technical Writing-Comm
+",ENG,122,3
+15,"General Physics I",PHY,281,4
+16,"Physics I with Calculus",PHY,281,4
+17,"Data Structures",CIS,211,4
+18,"Principles of Discrete Math",MAT,263,4
+19,Macroeconomics,ECO,111,3
+20,"Sociology ",SOC,111,3
+21,"General Psychology",PSY,121,3

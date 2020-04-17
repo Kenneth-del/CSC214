@@ -1,0 +1,3 @@
+id,AddressNumber,Suite,StreetName,City,State,ZipCode
+1,12,,"A Street",Newark,DE,19711
+2,23,NULL,"B Street",Wilmington,DE,19801
