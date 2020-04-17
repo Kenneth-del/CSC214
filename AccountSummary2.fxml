@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #e1ae07;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group2.SceneViewAccountSummary">
+   <children>
+      <AnchorPane prefHeight="134.0" prefWidth="1280.0" style="-fx-background-color: #0A6B34;">
+         <children>
+            <Button layoutX="25.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #e1ae07;" text="Back to Home" textFill="#0a6b34" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button layoutX="1144.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #e1ae07;" text="Sign out" textFill="#0a6b34" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Label layoutX="512.0" layoutY="65.0" text="Account Summary" textFill="#e1ae07">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button layoutX="177.0" layoutY="671.0" mnemonicParsing="false" style="-fx-background-color: #0A6B34;" text="Print Transaction" textFill="#e1ae07">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="125.0" layoutY="177.0" prefHeight="61.0" prefWidth="194.0" text="Transaction List" textFill="#0a6b34">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <HBox layoutX="177.0" layoutY="339.0" prefHeight="287.0" prefWidth="927.0">
+         <children>
+            <ListView prefHeight="288.0" prefWidth="262.0" />
+            <ListView layoutX="10.0" layoutY="10.0" prefHeight="288.0" prefWidth="262.0" />
+            <ListView layoutX="272.0" layoutY="10.0" prefHeight="288.0" prefWidth="262.0" />
+            <ListView layoutX="534.0" layoutY="10.0" prefHeight="288.0" prefWidth="262.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="177.0" layoutY="293.0" prefHeight="55.0" prefWidth="927.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="250.0" text="Transaction ID" textFill="#0a6b34">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="250.0" text="Amount" textFill="#0a6b34">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="230.0" text="Date" textFill="#0a6b34">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="55.0" prefWidth="253.0" text="Status" textFill="#0a6b34">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label layoutX="745.0" layoutY="662.0" prefHeight="61.0" prefWidth="194.0" text="Account Balance:" textFill="#0a6b34">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="913.0" layoutY="676.0" prefHeight="33.0" prefWidth="123.0" text="xxx" />
+   </children>
+</AnchorPane>

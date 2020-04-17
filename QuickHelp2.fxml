@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group2.SceneQuickHelp">
+   <children>
+      <BorderPane layoutY="-1.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #0A6B34;">
+         <top>
+            <HBox prefHeight="102.0" prefWidth="1276.0" style="-fx-border-color: #f7bc0a;" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+            <AnchorPane prefHeight="190.0" prefWidth="1287.0" style="-fx-border-color: #f7bc0a;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button layoutX="213.0" layoutY="48.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="218.0" style="-fx-background-color: #f7bc0a;" text="Wilmigton Campus" textFill="#0a6b34">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="474.0" layoutY="48.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="219.0" style="-fx-background-color: #f7bc0a;" text="Stanton Campus" textFill="#0a6b34">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="737.0" layoutY="48.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="219.0" style="-fx-background-color: #f7bc0a;" text="Dover Campus" textFill="#0a6b34">
+                     <font>
+                        <Font name="System Bold Italic" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="997.0" layoutY="48.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="219.0" style="-fx-background-color: #f7bc0a;" text="Georgetown Campus" textFill="#0a6b34">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="51.0" layoutY="70.0" text="Maps" textFill="#f7bc0a">
+                     <font>
+                        <Font name="System Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <left>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="1284.0">
+               <children>
+                  <HBox layoutY="237.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="1284.0">
+                     <children>
+                        <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="429.0" style="-fx-border-color: #0a6b34;" text="&#10;Q4: What should I do if I am lost in campus? &#10;&#10;- Maps are located in the bottem section of this page &#10;&#10;- Select your campus for a full Map and directions ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="429.0" style="-fx-background-color: #0a6b34;" text="&#10;Q5: How can i change my infromation?&#10;&#10;- Navigate to the Student Information page select Edit &#10;Information&#10;&#10;- Select the infromation you need to change &#10;&#10;- Enter new infromation in the correct format and &#10;save changes by clicking Save">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea layoutX="438.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="429.0" style="-fx-border-color: #0a6b34;" text="&#10;Q6: How can I find more infromation about my course &#10; and teacher?&#10;&#10;- Login with your Student id and password.&#10;&#10;- Click on the Course infromation tab to view &#10;registered courses and instructor's information&#10;&#10;- The courses information can be print out by click &#10;print">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <AnchorPane>
+                     <children>
+                        <HBox>
+                           <children>
+                              <TextArea prefHeight="250.0" prefWidth="429.0" style="-fx-border-color: #0a6b34;" text="&#10;Q1: How do i log in?&#10;&#10;- Enter your student ID number&#10;&#10;- Enter your Del-tech student &#10;&#10;- Click login">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextArea>
+                              <TextArea prefHeight="250.0" prefWidth="429.0" style="-fx-border-color: #0a6b34;" text="&#10;Q2: Where can i go to view my account summary?&#10;&#10;- Login to gain access&#10;&#10;- Click on the account summary tab&#10;&#10;- View Transcation list">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextArea>
+                              <TextArea prefHeight="250.0" prefWidth="429.0" style="-fx-border-color: #0a6b34;" text="&#10;Q3: Where can I see all my transcations?&#10;&#10;- Login to gain access&#10;&#10;- Click on account summary tab&#10;&#10;- Select Print Transcation and choose avavible printer">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startScene" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #F7BC0A;" text="Sign out" textFill="#0a6b34" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #F7BC0A;" text="Home Page" textFill="#0a6b34" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" prefHeight="93.0" prefWidth="434.0" text="Quick Help" textAlignment="CENTER" textFill="#f7bc0a" AnchorPane.rightAnchor="419.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold Italic" size="33.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
