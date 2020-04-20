@@ -33,8 +33,8 @@ public class SceneLogIn {
     private TextField UID;
     @FXML
     private PasswordField UPW;
-    
-	public static boolean isTargetSceneReloaded = false;
+
+    public static boolean isTargetSceneReloaded = false;
 
 
     //TODO: Add javadoc
@@ -44,7 +44,7 @@ public class SceneLogIn {
         return mainFXML;
     }
 
-  //TODO: Add javadoc
+    //TODO: Add javadoc
     /*
      * This function handles the action of clicking on the login button
      * essentially all it does it creates a new object of the next Scene
@@ -52,76 +52,74 @@ public class SceneLogIn {
      */
     public void handleLoginButtonAction() throws SQLException, IOException, NoSuchAlgorithmException {
 
-    	if(userIDIsvalid()){
-        	//Authenticates user before opening next scene
+        if (userIDIsvalid()) {
+            //Authenticates user before opening next scene
             if (Security.authenticateUser(UID.getText(), UPW.getText())) {
                 Parent userInfo;
-                userInfo = FXMLLoader.load(getClass().getResource("KioskHome.fxml"));
+                userInfo = FXMLLoader.load(getClass().getResource("Kiosk_Home.fxml"));
 
                 Stage newStage = Driver.parentWindow;
                 newStage.getScene().setRoot(userInfo);
+                User.setUser(Integer.parseInt(UID.getText()));
             }
-        }
-    	else {
-    		System.out.println("here");
-			isTargetSceneReloaded = true;
-			SceneLogIn self = new SceneLogIn();
+        } else {
+            System.out.println("here");
+            isTargetSceneReloaded = true;
+            System.out.println("test");
+            SceneLogIn self = new SceneLogIn();
 
-			self.startScene();
-    	}
+            self.startScene();
+        }
     }
-    
+
     //TODO: Add javadoc
     public void handleQuickHelpAction() throws IOException {
         SceneQuickHelp QH = new SceneQuickHelp();
     }
-    
+
     private boolean userIDIsvalid() {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
-		//System.out.println(UID.getCharacters());
-		if (UID.getCharacters().length() != 9) // check to make sure it is the appropriate length
-			return false;
+        //System.out.println(UID.getCharacters());
+        if (UID.getCharacters().length() != 9) // check to make sure it is the appropriate length
+            return false;
 
-		else if(UID.getCharacters().toString().matches("^[0-9]+")) // checks against every character to see if each char is 0-9
-																	// if not then it returns false as a condition and skips
-			return true;
+        else if (UID.getCharacters().toString().matches("^[0-9]+")) // checks against every character to see if each char is 0-9
+            // if not then it returns false as a condition and skips
+            return true;
 
 
-		else
-			return false;
-	}
-    
+        else
+            return false;
+    }
+
     void startScene() throws IOException {
-		if (!isTargetSceneReloaded)
-		{
-			Parent userInfo;
-			userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
-			Stage newStage;
+        if (!isTargetSceneReloaded) {
+            Parent userInfo;
+            userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
+            Stage newStage;
 
-			newStage = Driver.parentWindow;
-			newStage.getScene().setRoot(userInfo);
-		}
-		else
-		{
-			BorderPane bp = new BorderPane();
+            newStage = Driver.parentWindow;
+            newStage.getScene().setRoot(userInfo);
+        } else {
+            BorderPane bp = new BorderPane();
 
-			Parent userInfo;
-			userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
-			Text t = new Text("Your username or password is incorrect");
-			t.setFill(Color.RED);
-			bp.setTop(t);
-			bp.setCenter(userInfo);
+            Parent userInfo;
+            userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
+            Text t = new Text("Your username or password is incorrect");
+            t.setFill(Color.RED);
+            bp.setTop(t);
+            bp.setCenter(userInfo);
 
-			Stage newStage;
+            Stage newStage;
 
-			// To-do figure out how to change text of welcome screen
+            // To-do figure out how to change text of welcome screen
 
 
-			newStage = Driver.parentWindow;
-			newStage.getScene().setRoot(bp);
-		}
-	}
+            newStage = Driver.parentWindow;
+            newStage.getScene().setRoot(bp);
+        }
+    }
 
 
 }

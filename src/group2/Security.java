@@ -14,11 +14,12 @@ import java.util.logging.Logger;
  */
 public class Security {
 
-    public boolean authenticateUser(String UID, String UPW) throws NoSuchAlgorithmException {
+    public static boolean authenticateUser(String UID, String UPW) throws NoSuchAlgorithmException {
     	boolean authenticated = false;
         PreparedStatement ps;
 
-        String query = "SELECT * FROM Credentials WHERE auth_hash =?";
+        String query = "SELECT * FROM Credentials "
+        		+ "WHERE AuthenticationHash =?";
 
 
         try {
@@ -43,9 +44,7 @@ public class Security {
     static String SecurityHash(String password) throws NoSuchAlgorithmException {
         return toHex(hashPassword(password));
     }
-    Security() {
 
-    }
 
     private static byte[] hashPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest algo = MessageDigest.getInstance("SHA-256");
