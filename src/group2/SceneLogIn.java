@@ -61,6 +61,17 @@ public class SceneLogIn {
                 Stage newStage = Driver.parentWindow;
                 newStage.getScene().setRoot(userInfo);
                 User.setUser(Integer.parseInt(UID.getText()));
+                
+                //Tests getting emergency contact and updating address 
+               //System.out.println(User.getEmergencyContacts().get(0).getAddress());
+               User.getEmergencyContacts().get(0).getAddress().update("25", "B Street", "Newark", "DE", "19801");
+                
+                //Tests updating user address
+                //User.getAddress().update("25", "Kirkwood Street", "Wilmington", "DE", "19801");
+                
+                //Test making sure course information is being saved properly
+                //System.out.println(User.getRegistration().getCourse("Spring 2020", 32947));
+                
             }
         } else {
             System.out.println("here");
