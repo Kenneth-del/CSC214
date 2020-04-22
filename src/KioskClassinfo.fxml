@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.HBox.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e1ae07;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneViewRegistration">
+   <children>
+      <AnchorPane prefHeight="68.0" prefWidth="600.0" style="-fx-background-color: #0A6B34;">
+         <children>
+            <Text fill="#e1ae07" layoutX="225.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Information" wrappingWidth="149.94873046875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="458.0" layoutY="15.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" onAction ="#handleBack"/>
+         </children>
+      </AnchorPane>
+      <HBox fx:id = "HB" layoutX="23.0" layoutY="119.0" prefHeight="128.0" prefWidth="556.0">
+		<children></children>
+	</HBox>
+      <Button fx:id = "Print" layoutX="88.0" layoutY="277.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="141.0" style="-fx-background-color: #0A6B34;" text="Print Course Info" textFill="#e1ae07" onAction = "#handlePrint" />
+      <Button layoutX="332.0" layoutY="277.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" style="-fx-background-color: #0A6B34;" text="Help me find the classroom!" textFill="#e1ae07" onAction = "#handleClass" />
+   </children>
+</AnchorPane>

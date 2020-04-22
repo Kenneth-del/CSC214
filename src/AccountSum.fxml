@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e1ae07;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneViewAccountSummary">
+   <children>
+      <AnchorPane prefHeight="68.0" prefWidth="600.0" style="-fx-background-color: #0A6B34;">
+         <children>
+            <Text fill="#e1ae07" layoutX="225.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Summary" wrappingWidth="149.94873046875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="458.0" layoutY="15.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #e1ae07;" text="Back to Home" onAction="#handleBack"/>
+         </children>
+      </AnchorPane>
+      <Button layoutX="51.0" layoutY="332.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="141.0" style="-fx-background-color: #0A6B34;" text="Print Transaction" textFill="#e1ae07" onAction="#handlePrint"/>
+      <Label layoutX="27.0" layoutY="82.0" text="Transaction LIst">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <HBox fx:id = "LH" layoutX="50.0" layoutY="137.0" prefHeight="174.0" prefWidth="501.0">
+         <children>
+                     </children>
+      </HBox>
+      <HBox layoutX="50.0" layoutY="110.0" prefHeight="27.0" prefWidth="492.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="125.0" text="Transaction ID" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="118.0" text="Amount" />
+            <Label alignment="CENTER" layoutX="40.0" layoutY="10.0" prefHeight="17.0" prefWidth="123.0" text="Date" />
+            <Label alignment="CENTER" layoutX="70.0" layoutY="10.0" prefHeight="17.0" prefWidth="126.0" text="Status" />
+         </children>
+      </HBox>
+      <Label layoutX="334.0" layoutY="337.0" text="Account Balance:" />
+      <Text fx:id="AB" fill="#070707" layoutX="445.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="86.0" />
+   </children>
+</AnchorPane>

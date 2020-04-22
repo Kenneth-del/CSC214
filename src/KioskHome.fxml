@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F7BC0A;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneHome" >
+   <children>
+      <AnchorPane layoutY="38.0" prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: #0A6B34;" >
+         <children>
+            <Text layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to DTCC Student Service Kiosk System" textAlignment="CENTER" wrappingWidth="600.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="0.4711538461538462" endY="0.6009615384615383" startX="0.4519230769230769" startY="0.3557692307692308">
+                    <stops>
+                        <Stop color="#f5802c" />
+                        <Stop color="#f5802c" offset="0.007518796992481203" />
+                        <Stop color="#f7bc0a" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <GridPane layoutX="32.0" layoutY="8.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="23.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="177.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fx:id ="UN" fill="#0a6b34" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi, " />
+
+         </children>
+      </GridPane>
+      <Button layoutX="499.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #F7BC0A;" text="Sign out" textFill="#0a6b34" onAction="#handleSignOut"/>
+      <GridPane layoutX="120.0" layoutY="158.0" prefHeight="148.0" prefWidth="411.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" prefWidth="160.0" style="-fx-background-color: #0A6B34;" text="Student Information" onAction="#handleStudentInformation"/>
+            <Button mnemonicParsing="false" prefWidth="160.0" style="-fx-background-color: #0A6B34;" text="Account Summary" GridPane.rowIndex="1" onAction="#handleAccountSummary"/>
+            <Button mnemonicParsing="false" prefWidth="160.0" style="-fx-background-color: #0A6B34;" text="Class Information" GridPane.rowIndex="2" onAction="#handleClassInformation"/>
+            <Button mnemonicParsing="false" prefWidth="160.0" style="-fx-background-color: #0A6B34;" text="Library" GridPane.columnIndex="1"  onAction="#handleLibrary"/>
+            <Button mnemonicParsing="false" prefWidth="160.0" style="-fx-background-color: #0A6B34;" text="Bookstore" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#handleBookStore"/>
+            <Button mnemonicParsing="false" prefWidth="160.0" style="-fx-background-color: #0A6B34;" text="Quick Help" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#handleQuickHelp" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
+

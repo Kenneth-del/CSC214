@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller = "SceneLogIn">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="-1.0" prefHeight="379.0" prefWidth="593.0" style="-fx-background-color: #F7BC0A">
+      <bottom>
+        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="594.0">
+          <children>
+            <Label alignment="TOP_LEFT" prefHeight="125.0" prefWidth="179.0" style="-fx-border-color:Green" text="Q4:" textFill="#216600">
+              <font>
+                <Font name="System Bold Italic" size="12.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Label alignment="TOP_LEFT" font="$x1" prefHeight="125.0" prefWidth="207.0" style="-fx-border-color:Green" text="Q5:">
+              <textFill>
+                <Color blue="0.000" green="0.400" red="0.032" fx:id="x2" />
+              </textFill>
+            </Label>
+            <Label alignment="TOP_LEFT" font="$x1" prefHeight="125.0" prefWidth="224.0" style="-fx-border-color:Green" text="Q6:" textFill="$x2" />
+          </children>
+        </HBox>
+      </bottom>
+      <left>
+        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="593.0">
+          <children>
+            <Label alignment="TOP_LEFT" font="$x1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="179.0" style="-fx-border-color:Green" text="Q1:How do i login in">
+              <textFill>
+                <Color blue="0.064" green="0.400" red="0.000" fx:id="x4" />
+              </textFill>
+            </Label>
+            <Label alignment="TOP_LEFT" font="$x1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="207.0" style="-fx-border-color:Green" text="Q2:How do i change my contact Info" textFill="$x2" />
+            <Label alignment="TOP_LEFT" font="$x1" prefHeight="110.00009999999747" prefWidth="219.0" style="-fx-border-color:Green" text="Q3:How do i print my Scheudle" textFill="$x2" />
+          </children>
+        </HBox>
+      </left>
+      <top>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+          <children>
+            <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #0A6B34">
+              <children>
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="107.0" style="-fx-background-color: #F7BC0A" text="Back" onAction="#handleQuickHelpBack"/>
+                <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="100.0" prefWidth="494.0" text="Quick Help" textFill="#ffc633" underline="true">
+                  <font>
+                    <Font name="System Bold Italic" size="56.0" />
+                  </font>
+                </Label>
+              </children>
+            </HBox>
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <AnchorPane layoutX="0.0" layoutY="334.0" prefHeight="66.00009155273438" prefWidth="600.0" style="-fx-background-color: #0A6B34">
+      <children>
+        <Label layoutX="0.0" layoutY="3.0" prefHeight="30.0" prefWidth="79.0" text="Maps" textFill="#ffb800">
+          <font>
+            <Font name="System Bold Italic" size="15.0" />
+          </font>
+        </Label>
+        <Button font="$x1" layoutX="48.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="116.0" style="-fx-background-color: #F7BC0A" text="wilmington Campus" onAction="#handlePDF">
+          <textFill>
+            <Color blue="0.160" green="0.400" red="0.000" fx:id="x3" />
+          </textFill>
+        </Button>
+        <Button font="$x1" layoutX="171.0" layoutY="19.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #F7BC0A" text="Staton Campus" textFill="$x3" onAction="#handlePDF"/>
+        <Button font="$x1" layoutX="312.0" layoutY="18.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: #F7BC0A" text="Dover Campus" textFill="$x4" onAction="#handlePDF" />
+        <Button font="$x1" layoutX="439.0" layoutY="19.0" mnemonicParsing="false" prefHeight="30.000099999997474" prefWidth="126.0" style="-fx-background-color: #F7BC0A" text="Georgetown Campus" textFill="$x4" onAction="#handlePDF"/>
+      </children>
+    </AnchorPane>
+  </children>
+</AnchorPane>
