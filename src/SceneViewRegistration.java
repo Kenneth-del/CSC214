@@ -1,10 +1,29 @@
 
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.Copies;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -154,28 +173,56 @@ public class SceneViewRegistration extends Scene {
 	 }
 
 
-	public void handlePrint()
+	public void handlePrint() throws PrintException, IOException
 	 {
 		String semester = selectedSemester;
 		ArrayList<Course> c = SceneLogIn.rg.getSemester(semester);
-		 try {
-			 System.out.println(CS);
-			 System.out.println(SC);
-	            FileWriter writer = new FileWriter("Registration.txt", false);
-	            BufferedWriter BW = new BufferedWriter(writer);
-	           for (int i = 0; i < CS; i++)
-	           {
-	        	   BW.append("-------------------------------------------------------------");
-	        	   BW.newLine();
-	        	   BW.append(SceneLogIn.rg.registration.get(SC).toString());
-	        	   BW.newLine();
-	        	   BW.append("-------------------------------------------------------------");
-	        	   System.out.println("This ran");
-	           }
-	            BW.close();
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+
+			PDDocument document = new PDDocument();
+			document.save("Registration.pdf");
+			PDPage my_page = new PDPage();
+			document.addPage(my_page);
+			document.save("Registration.pdf");
+			document.close();
+
+			File file = new File("Registration.pdf");
+			PDDocument docs = document.load(file);
+			PDPage page = docs.getPage(0);
+			PDPageContentStream contentStream = new PDPageContentStream(docs,page);
+
+			contentStream.beginText();
+			contentStream.newLineAtOffset(10, 450);
+			PDFont font = PDType1Font.COURIER;
+			contentStream.setFont(font, 8 );
+			 for (int i = CS; i >= 0; i--)
+	         {
+
+				 contentStream.showText("----------------------------------------------------------");
+				 contentStream.newLineAtOffset(0, 25);
+				 contentStream.showText(SceneLogIn.rg.registration.get(SC).toString());
+			 	 contentStream.newLineAtOffset(0, 25);
+				 contentStream.showText("----------------------------------------------------------");
+
+	         }
+
+			 contentStream.endText();
+			 contentStream.close();
+			 docs.save("Registration.pdf");
+			 docs.close();
+			 PrintService ps=PrintServiceLookup.lookupDefaultPrintService();
+		      DocPrintJob job=ps.createPrintJob();
+		     /*
+		      job.addPrintJobListener(new PrintJobAdapter() {
+		      public void printDataTransferCompleted(PrintJobEvent event){
+		      }
+		      public void printJobNoMoreEvents(PrintJobEvent event){
+		         }
+		      });*/
+		      FileInputStream fis=new FileInputStream("Transactions1.pdf");
+		      Doc doc=new SimpleDoc(fis, DocFlavor.INPUT_STREAM.AUTOSENSE, null);
+		      PrintRequestAttributeSet attrib=new HashPrintRequestAttributeSet();
+		      attrib.add(new Copies(1));
+		      job.print(doc, attrib);
 	 }
 	public void handleClass()
 	{
