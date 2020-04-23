@@ -99,7 +99,10 @@ public class SceneViewAccountSummary extends Scene {
 		DecimalFormat numberFormat = new DecimalFormat("#.00");
 		return Double.valueOf(numberFormat.format(balanceTotal));
 	}
-
+	/*
+	 * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
+	 * User to create a print job: https://www.developer.com/java/data/how-to-add-java-print-services-to-your-java-application.html
+	 */
 	public void handlePrint() throws PrintException, IOException
 	{
 		/*
