@@ -176,7 +176,7 @@ public class SceneViewRegistration extends Scene {
 
 /*
  * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
- * User to create a print job: https://docs.oracle.com/javase/7/docs/api/javax/print/DocFlavor.INPUT_STREAM.html
+ * User to create a print job: https://docs.oracle.com/javase/7/docs/technotes/guides/jps/spec/jpsOverview.fm4.html
  */
 	public void handlePrint() throws PrintException, IOException
 	 {
