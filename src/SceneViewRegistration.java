@@ -3,6 +3,7 @@
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import javax.print.SimpleDoc;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
+import javax.print.attribute.standard.Sides;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -174,7 +176,7 @@ public class SceneViewRegistration extends Scene {
 
 /*
  * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
- * User to create a print job: https://www.developer.com/java/data/how-to-add-java-print-services-to-your-java-application.html
+ * User to create a print job: https://docs.oracle.com/javase/7/docs/api/javax/print/DocFlavor.INPUT_STREAM.html
  */
 	public void handlePrint() throws PrintException, IOException
 	 {
@@ -212,21 +214,31 @@ public class SceneViewRegistration extends Scene {
 			 contentStream.close();
 			 docs.save("Registration.pdf");
 			 docs.close();
-			 PrintService ps=PrintServiceLookup.lookupDefaultPrintService();
-		      DocPrintJob job=ps.createPrintJob();
-		     /*
-		      job.addPrintJobListener(new PrintJobAdapter() {
-		      public void printDataTransferCompleted(PrintJobEvent event){
-		      }
-		      public void printJobNoMoreEvents(PrintJobEvent event){
-		         }
-		      });*/
-		      FileInputStream fis=new FileInputStream("Transactions1.pdf");
-		      Doc doc=new SimpleDoc(fis, DocFlavor.INPUT_STREAM.AUTOSENSE, null);
-		      PrintRequestAttributeSet attrib=new HashPrintRequestAttributeSet();
-		      attrib.add(new Copies(1));
-		      job.print(doc, attrib);
+			 FileInputStream textStream = null;
+			 try {
+			         textStream = new FileInputStream("Registration.pdf");
+			 } catch (FileNotFoundException ffne) {
+			 }
+
+			 // Set the document type
+			 DocFlavor myFormat = DocFlavor.INPUT_STREAM.AUTOSENSE;
+			 // Create a Doc
+			 Doc myDoc = new SimpleDoc(textStream, myFormat, null);
+			 // Build a set of attributes
+			 PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+			 aset.add(new Copies(1));
+			 aset.add(Sides.DUPLEX);
+			 // discover the printers that can print the format according to the
+			 // instructions in the attribute set
+
+			         PrintService services = PrintServiceLookup.lookupDefaultPrintService();
+			 // Create a print job from one of the print services
+
+			         DocPrintJob job = services.createPrintJob();
+			         job.print(myDoc, aset);
+
 	 }
+
 	public void handleClass()
 	{
 		BorderPane mainPane = new BorderPane();

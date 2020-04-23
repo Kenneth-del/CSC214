@@ -1,5 +1,6 @@
 
 
+import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +20,8 @@ import javax.print.SimpleDoc;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
+import javax.print.attribute.standard.MediaSize;
+import javax.print.attribute.standard.Sides;
 import javax.print.event.PrintJobAdapter;
 import javax.print.event.PrintJobEvent;
 
@@ -64,12 +67,6 @@ public class SceneViewAccountSummary extends Scene {
 		userInfo = FXMLLoader.load(getClass().getResource("AccountSum.fxml"));
 		Stage newStage;
 
-		SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-		SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-		SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-			SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-			SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-			transactionList = SceneLogIn.user.transactionList;
 		ListView<Transaction> lv = new ListView<>(FXCollections.observableArrayList
 												 (SceneLogIn.user.transactionList));
 		lv.setPrefHeight(600);
@@ -83,11 +80,6 @@ public class SceneViewAccountSummary extends Scene {
 	// adds the total for each line and returns the formated sum
 	private double getAccountTotal()
 	{
-		SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-	SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-	SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-		SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
-		SceneLogIn.user.transactionList.add(new Transaction("Tuition", 4282020, 480.99 ,"Spring 2020"));
 
 		double balanceTotal = 0;
 
@@ -101,7 +93,7 @@ public class SceneViewAccountSummary extends Scene {
 	}
 	/*
 	 * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
-	 * User to create a print job: https://www.developer.com/java/data/how-to-add-java-print-services-to-your-java-application.html
+	 * User to create a print job: https://docs.oracle.com/javase/7/docs/api/javax/print/DocFlavor.INPUT_STREAM.html
 	 */
 	public void handlePrint() throws PrintException, IOException
 	{
@@ -162,20 +154,29 @@ public class SceneViewAccountSummary extends Scene {
 		 contentStream.close();
 		 docs.save("Transactions.pdf");
 		 docs.close();
-		 PrintService ps=PrintServiceLookup.lookupDefaultPrintService();
-	      DocPrintJob job=ps.createPrintJob();
-	     /*
-	      job.addPrintJobListener(new PrintJobAdapter() {
-	      public void printDataTransferCompleted(PrintJobEvent event){
-	      }
-	      public void printJobNoMoreEvents(PrintJobEvent event){
-	         }
-	      });*/
-	      FileInputStream fis=new FileInputStream("Transactions1.pdf");
-	      Doc doc=new SimpleDoc(fis, DocFlavor.INPUT_STREAM.AUTOSENSE, null);
-	      PrintRequestAttributeSet attrib=new HashPrintRequestAttributeSet();
-	      attrib.add(new Copies(1));
-	      job.print(doc, attrib);
-	 }
 
-}
+		 FileInputStream textStream = null;
+		 try {
+		         textStream = new FileInputStream("Transactions.pdf");
+		 } catch (FileNotFoundException ffne) {
+		 }
+
+		 // Set the document type
+		 DocFlavor myFormat = DocFlavor.INPUT_STREAM.AUTOSENSE;
+		 // Create a Doc
+		 Doc myDoc = new SimpleDoc(textStream, myFormat, null);
+		 // Build a set of attributes
+		 PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+		 aset.add(new Copies(1));
+		 aset.add(Sides.DUPLEX);
+		 // discover the printers that can print the format according to the
+		 // instructions in the attribute set
+
+		         PrintService services = PrintServiceLookup.lookupDefaultPrintService();
+		 // Create a print job from one of the print services
+
+		         DocPrintJob job = services.createPrintJob();
+		         job.print(myDoc, aset);
+
+		 }
+	 }
