@@ -77,8 +77,7 @@ public class SceneHome extends Scene {
 	public void handleSignOut() throws IOException
 	{
 		SceneLogIn LI = new SceneLogIn();
-		SceneLogIn.rg = null;
-		SceneLogIn.user = null;
+		//User = null;
 		LI.startScene();
 	}
 	@Override
@@ -86,7 +85,7 @@ public class SceneHome extends Scene {
 		Parent userInfo;
 		userInfo = FXMLLoader.load(getClass().getResource("KioskHome.fxml"));
 		Stage newStage;
-		((Text)userInfo.lookup("#UN")).setText("Hello " + SceneLogIn.user.getFirstName() +" "+ SceneLogIn.user.getLastName());
+		((Text)userInfo.lookup("#UN")).setText("Hello " + User.getFirstName() +" "+ User.getLastName());
 		newStage = Driver.parentWindow;
 		newStage.getScene().setRoot(userInfo);
 

@@ -1,26 +1,22 @@
-
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+
+//TODO: Add javadoc
 /*
  * This is the primary controller that will handle the
  * initial login UI. This will launch the login prompt
@@ -29,99 +25,77 @@ import javafx.stage.Stage;
  *
  *
  */
-public class SceneLogIn extends Scene {
-	public static boolean isTargetSceneReloaded = false;
-	public String studentID;
-	public String studentPW;
-	public static User user = new User();
-	public static Registration rg = null; // set on SceneHome generation
-	/* these are the property fields from the fxml
-	 * they will hold what values the user enters from there they can be validated
-	 */
-@FXML private Text textChanged;
-@FXML private TextField UID;
-@FXML private PasswordField UPW;
+public class SceneLogIn {
 
-	public SceneLogIn()
-	{
+    /* these are the property fields from the fxml
+     * they will hold what values the user enters from there they can be validated
+     */
+    @FXML
+    private TextField UID;
+    @FXML
+    private PasswordField UPW;
 
-		// Initializes student IDs and passwords to compare and validate
-		//this.setStudentID(getStudentID());
-		//this.setStudentPW(getStudentPasswords());
-	}
-
-	/* A work around to get the initial scene loaded in start
-	 * essentially it loads the UI into type parent the returns that value
-	 */
-
-	public Parent generateParent() throws IOException {
-		Parent mainFXML = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
-/*
-		FXMLLoader fxml = new FXMLLoader(getClass().getResource("Kiosk_login.fxml"));
-		//fxml.setRoot(this);
-		fxml.setController(this);
-
-		try {
-			fxml.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		return mainFXML;
-	}
+    public static boolean isTargetSceneReloaded = false;
+    
+    public static User user;
 
 
+    //TODO: Add javadoc
+    public Parent generateParent() throws IOException {
+        Parent mainFXML = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
 
+        return mainFXML;
+    }
 
+    //TODO: Add javadoc
+    /*
+     * This function handles the action of clicking on the login button
+     * essentially all it does it creates a new object of the next Scene
+     * the constructor of the next scene should handle the rest of the user actions
+     */
+    public void handleLoginButtonAction() throws SQLException, IOException, NoSuchAlgorithmException {
 
-	/*
-	 * This function handles the action of clicking on the login button
-	 * essentially all it does it creates a new object of the next Scene
-	 * the constructor of the next scene should handle the rest of the user actions
-	 */
-	public void handleLoginButtonAction() throws IOException, NoSuchAlgorithmException, NumberFormatException, SQLException
-	{
-		//if (userIDIsvalid())
-			{
-		//	if (isInfoInDataBase(UID, UPW))
-			//{
-				rg = new Registration(user.getId()); // due to some exceptions setting the registration here makes sense for now.
-				Parent userInfo;
-				userInfo = FXMLLoader.load(getClass().getResource("KioskHome.fxml"));
-				//user.setStudent((Integer.valueOf(UID.getText())));
-				((Text)userInfo.lookup("#UN")).setText("Hello " + user.getFirstName() +" "+ user.getLastName());
-				Stage newStage = Driver.parentWindow;
-				newStage.getScene().setRoot(userInfo);
-			}
+        if (userIDIsvalid()) {
+            //Authenticates user before opening next scene
+            if (Security.authenticateUser(UID.getText(), UPW.getText())) {
+                User.setUser(Integer.parseInt(UID.getText()));
+            	Parent userInfo;
+        		userInfo = FXMLLoader.load(getClass().getResource("KioskHome.fxml"));
+        		
+        		((Text)userInfo.lookup("#UN")).setText("Hello " + user.getFirstName() +" "+ user.getLastName());
 
+        		Stage newStage = Driver.parentWindow;
+        		newStage.getScene().setRoot(userInfo);
+                
+                //Tests getting emergency contact and updating address 
+               //System.out.println(User.getEmergencyContacts().get(0).getAddress());
+               //User.getEmergencyContacts().get(0).getAddress().update("25", "B Street", "Newark", "DE", "19801");
+                
+                //Tests updating user address
+                //User.getAddress().update("25", "Kirkwood Street", "Wilmington", "DE", "19801");
+                
+                //Test making sure course information is being saved properly
+                //System.out.println(User.getRegistration().getCourse("Spring 2020", 32947));
+        		
+        		
+        		                
+            }
+        } else {
+            System.out.println("here");
+            isTargetSceneReloaded = true;
+            System.out.println("test");
+            SceneLogIn self = new SceneLogIn();
 
-
-		//}
-		//else
-		//{
-			//System.out.println("here");
-			///isTargetSceneReloaded = true;
-			//SceneLogIn self = new SceneLogIn();
-
-			//self.startScene();
-		//}
-
-		/*
-		Parent userInfo = null;
-		userInfo = FXMLLoader.load(getClass().getResource("Kiosk_StuInfo.fxml"));
-		Stage newStage;
-
-		newStage = Driver.parentWindow;
-		newStage.getScene().setRoot(userInfo);
-	*/
-	}
-	public void handleQuickHelpAction() throws IOException
+            self.startScene();
+        }
+    }
+    
+    public void handleQuickHelpAction() throws IOException
 	{
 		SceneQuickHelp QH = new SceneQuickHelp();
 	}
 
-	public void handlePDF()
+    public void handlePDF()
 	{
 		BorderPane mainPane = new BorderPane();
 
@@ -173,104 +147,50 @@ public class SceneLogIn extends Scene {
 
 		}
 	}
-
-	/*
-	 * TODO Write in the validation functions
-	 *
-	 */
-	//TODO get the studentIds from the DB
-
-	private ArrayList<String> getStudentIds()
-	{
-		return null;
-
-	}
-	private ArrayList<String> getStudentPasswords()
-	{
-		return null;
-
-	}
+	
 	private boolean userIDIsvalid() {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
-		//System.out.println(UID.getCharacters());
-		if (UID.getCharacters().length() != 9) // check to make sure it is the appropriate length
-			return false;
+        //System.out.println(UID.getCharacters());
+        if (UID.getCharacters().length() != 9) // check to make sure it is the appropriate length
+            return false;
 
-		else if(UID.getCharacters().toString().matches("^[0-9]+")) // checks against every character to see if each char is 0-9
-																	// if not then it returns false as a condition and skips
-			return true;
-		else
-			return false;
-	}
-	private boolean passwordIsValid() {
-		return true;
-	}
-
-	private boolean isInfoInDataBase(TextField UID,PasswordField UPW ) throws NoSuchAlgorithmException
-	{
-		//To-Do Check is this works...
-		/*
-		Security validate = new Security();
-		String UIDS = UID.getCharacters().toString();
-		String UPWS = UPW.getCharacters().toString();
-
-		if (validate.authenticateUser(UIDS, UPWS))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-		*/
-		return true;
-	}
-	public String getStudentID() {
-		return studentID;
-	}
-
-	public void setStudentID(String studentID) {
-		this.studentID = studentID;
-	}
-
-	public String getStudentPW() {
-		return studentPW;
-	}
-
-	public void setStudentPW(String studentPW) {
-		this.studentPW = studentPW;
-	}
+        else if (UID.getCharacters().toString().matches("^[0-9]+")) // checks against every character to see if each char is 0-9
+            // if not then it returns false as a condition and skips
+            return true;
 
 
-	void startScene() throws IOException {
-		if (!isTargetSceneReloaded)
-		{
-			Parent userInfo;
-			userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
-			Stage newStage;
-			//user = new User();
-			newStage = Driver.parentWindow;
-			newStage.getScene().setRoot(userInfo);
-		}
-		else
-		{
-			BorderPane bp = new BorderPane();
+        else
+            return false;
+    }
 
-			Parent userInfo;
-			userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
-			Text t = new Text("Your username or password is incorrect");
-			t.setFill(Color.RED);
-			bp.setTop(t);
-			bp.setCenter(userInfo);
+    void startScene() throws IOException {
+        if (!isTargetSceneReloaded) {
+            Parent userInfo;
+            userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
+            Stage newStage;
 
-			Stage newStage;
+            newStage = Driver.parentWindow;
+            newStage.getScene().setRoot(userInfo);
+        } else {
+            BorderPane bp = new BorderPane();
 
-			// To-do figure out how to change text of welcome screen
+            Parent userInfo;
+            userInfo = FXMLLoader.load(getClass().getResource("Kiosk_login.fxml"));
+            Text t = new Text("Your username or password is incorrect");
+            t.setFill(Color.RED);
+            bp.setTop(t);
+            bp.setCenter(userInfo);
+
+            Stage newStage;
+
+            // To-do figure out how to change text of welcome screen
 
 
-			newStage = Driver.parentWindow;
-			newStage.getScene().setRoot(bp);
-		}
-	}
+            newStage = Driver.parentWindow;
+            newStage.getScene().setRoot(bp);
+        }
+    }
+
+
 }

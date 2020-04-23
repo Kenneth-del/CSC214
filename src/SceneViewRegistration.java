@@ -1,7 +1,6 @@
 
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -26,6 +25,8 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+import javax.print.PrintException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -95,20 +96,19 @@ public class SceneViewRegistration extends Scene {
 
 
 
-		String selectedSemester = "Spring2020"; // just a default semester to display
+		String selectedSemester = "Spring 2020"; // just a default semester to display
 
-		SceneLogIn.rg.registration.add(new ArrayList<Course>());
-		SceneLogIn.rg.registration.get(0).add(new Course(948));
-		SceneLogIn.rg.semesters.add(selectedSemester);
+//		rg.registration.add(new ArrayList<Course>());
+//		rg.registration.get(0).add(new Course(948));
+//		rg.semesters.add(selectedSemester);
 
 
 		//List Of registration details
-		 lv = new ListView<>(FXCollections.observableArrayList
-				 (SceneLogIn.rg.getSemester(selectedSemester)));
+		 lv = new ListView<>(FXCollections.observableArrayList(User.getRegistration().getSemester(selectedSemester)));
 		lv.setPrefHeight(600);
 		lv.setPrefWidth(800);
 
-		ObservableList<String> items = FXCollections.observableArrayList(SceneLogIn.rg.semesters);
+		ObservableList<String> items = FXCollections.observableArrayList(User.getRegistration().getSemesters());
 		CB.getItems().setAll(items);
 
 
@@ -132,7 +132,7 @@ public class SceneViewRegistration extends Scene {
 
 			ComboBox<String> CB = new ComboBox<>();
 			CB.setMinWidth(400);
-			ObservableList<String> items = FXCollections.observableArrayList(SceneLogIn.rg.semesters);
+			ObservableList<String> items = FXCollections.observableArrayList(User.getRegistration().getSemesters());
 			CB.getItems().setAll(items);
 			CB.setOnAction(e -> {
 				try {
@@ -146,19 +146,19 @@ public class SceneViewRegistration extends Scene {
 				}
 			});
 
-			String selectedSemester = "Spring2020";
-
-			SceneLogIn.rg.registration.add(new ArrayList<Course>());
-			SceneLogIn.rg.registration.get(0).add(new Course(948));
-			Course test = new Course(483);
-			test.courseName = "Test";
-			SceneLogIn.rg.registration.get(0).add(test);
-			SceneLogIn.rg.semesters.add(selectedSemester);
+//			String selectedSemester = "Spring2020";
+//
+//			rg.registration.add(new ArrayList<Course>());
+//			rg.registration.get(0).add(new Course(948));
+//			Course test = new Course(483);
+//			test.courseName = "Test";
+//			rg.registration.get(0).add(test);
+//			rg.semesters.add(selectedSemester);
 
 
 			//List Of registration details
 			 lv = new ListView<>(FXCollections.observableArrayList
-					 (SceneLogIn.rg.getSemester(semester)));
+					 (User.getRegistration().getSemester(semester)));
 			lv.setPrefHeight(600);
 			lv.setPrefWidth(800);
 
@@ -174,71 +174,72 @@ public class SceneViewRegistration extends Scene {
 			newStage.getScene().setRoot(userInfo);
 	 }
 
-/*
- * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
- * User to create a print job: https://docs.oracle.com/javase/7/docs/technotes/guides/jps/spec/jpsOverview.fm4.html
- */
-	public void handlePrint() throws PrintException, IOException
-	 {
-		String semester = selectedSemester;
-		ArrayList<Course> c = SceneLogIn.rg.getSemester(semester);
 
-			PDDocument document = new PDDocument();
-			document.save("Registration.pdf");
-			PDPage my_page = new PDPage();
-			document.addPage(my_page);
-			document.save("Registration.pdf");
-			document.close();
+	/*
+	 * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
+	 * User to create a print job: https://docs.oracle.com/javase/7/docs/technotes/guides/jps/spec/jpsOverview.fm4.html
+	 */
+		public void handlePrint() throws PrintException, IOException
+		 {
+			String semester = selectedSemester;
 
-			File file = new File("Registration.pdf");
-			PDDocument docs = document.load(file);
-			PDPage page = docs.getPage(0);
-			PDPageContentStream contentStream = new PDPageContentStream(docs,page);
+				PDDocument document = new PDDocument();
+				document.save("Registration.pdf");
+				PDPage my_page = new PDPage();
+				document.addPage(my_page);
+				document.save("Registration.pdf");
+				document.close();
 
-			contentStream.beginText();
-			contentStream.newLineAtOffset(10, 450);
-			PDFont font = PDType1Font.COURIER;
-			contentStream.setFont(font, 8 );
-			 for (int i = CS; i >= 0; i--)
-	         {
+				File file = new File("Registration.pdf");
+				PDDocument docs = document.load(file);
+				PDPage page = docs.getPage(0);
+				PDPageContentStream contentStream = new PDPageContentStream(docs,page);
 
-				 contentStream.showText("----------------------------------------------------------");
-				 contentStream.newLineAtOffset(0, 25);
-				 contentStream.showText(SceneLogIn.rg.registration.get(SC).toString());
-			 	 contentStream.newLineAtOffset(0, 25);
-				 contentStream.showText("----------------------------------------------------------");
+				contentStream.beginText();
+				contentStream.newLineAtOffset(10, 450);
+				PDFont font = PDType1Font.COURIER;
+				contentStream.setFont(font, 8 );
+				 for (int i = CS; i >= 0; i--)
+		         {
 
-	         }
+					 contentStream.showText("----------------------------------------------------------");
+					 contentStream.newLineAtOffset(0, 25);
+					 contentStream.showText(User.getRegistration().getSemester(semester));
+				 	 contentStream.newLineAtOffset(0, 25);
+					 contentStream.showText("----------------------------------------------------------");
 
-			 contentStream.endText();
-			 contentStream.close();
-			 docs.save("Registration.pdf");
-			 docs.close();
-			 FileInputStream textStream = null;
-			 try {
-			         textStream = new FileInputStream("Registration.pdf");
-			 } catch (FileNotFoundException ffne) {
-			 }
+		         }
 
-			 // Set the document type
-			 DocFlavor myFormat = DocFlavor.INPUT_STREAM.AUTOSENSE;
-			 // Create a Doc
-			 Doc myDoc = new SimpleDoc(textStream, myFormat, null);
-			 // Build a set of attributes
-			 PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
-			 aset.add(new Copies(1));
-			 aset.add(Sides.DUPLEX);
-			 // discover the printers that can print the format according to the
-			 // instructions in the attribute set
+				 contentStream.endText();
+				 contentStream.close();
+				 docs.save("Registration.pdf");
+				 docs.close();
+				 FileInputStream textStream = null;
+				 try {
+				         textStream = new FileInputStream("Registration.pdf");
+				 } catch (FileNotFoundException ffne) {
+				 }
 
-			         PrintService services = PrintServiceLookup.lookupDefaultPrintService();
-			 // Create a print job from one of the print services
+				 // Set the document type
+				 DocFlavor myFormat = DocFlavor.INPUT_STREAM.AUTOSENSE;
+				 // Create a Doc
+				 Doc myDoc = new SimpleDoc(textStream, myFormat, null);
+				 // Build a set of attributes
+				 PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+				 aset.add(new Copies(1));
+				 aset.add(Sides.DUPLEX);
+				 // discover the printers that can print the format according to the
+				 // instructions in the attribute set
 
-			         DocPrintJob job = services.createPrintJob();
-			         job.print(myDoc, aset);
+				         PrintService services = PrintServiceLookup.lookupDefaultPrintService();
+				 // Create a print job from one of the print services
 
-	 }
+				         DocPrintJob job = services.createPrintJob();
+				         job.print(myDoc, aset);
 
+		 }
+
+	
 	public void handleClass()
 	{
 		BorderPane mainPane = new BorderPane();

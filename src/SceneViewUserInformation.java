@@ -21,21 +21,21 @@ public class SceneViewUserInformation extends Scene {
 
 		if (!isSceneReturned)
 		{
-			Parent userInfo;
-			userInfo = FXMLLoader.load(getClass().getResource("Kiosk_StuInfo.fxml"));
+			Parent UserInfo;
+			UserInfo = FXMLLoader.load(getClass().getResource("Kiosk_StuInfo.fxml"));
 			Stage newStage;
-			((Text)userInfo.lookup("#name")).setText(SceneLogIn.user.getFirstName() +
-													 SceneLogIn.user.getMiddleName() +
-													 SceneLogIn.user.getLastName());
+			((Text)UserInfo.lookup("#name")).setText(User.getFirstName() + " " +
+					 User.getMiddleName() + " " +
+					 User.getLastName());
 
-			((Text)userInfo.lookup("#age")).setText(String.valueOf(SceneLogIn.user.getId()));
-			((Text)userInfo.lookup("#phoneNumber")).setText(SceneLogIn.user.getPhoneNumber());
-			((Text)userInfo.lookup("#GPA")).setText(String.valueOf(SceneLogIn.user.getGpa()));
-			((Text)userInfo.lookup("#address")).setText(new Address(SceneLogIn.user.getId()).toString());
-			((Text)userInfo.lookup("#emergencyContact")).setText(SceneLogIn.user.getEmergencyContacts().toString());
+((Text)UserInfo.lookup("#age")).setText(String.valueOf(User.getId()));
+((Text)UserInfo.lookup("#phoneNumber")).setText(User.getPhoneNumber());
+((Text)UserInfo.lookup("#GPA")).setText(String.valueOf(User.getGpa()));
+((Text)UserInfo.lookup("#address")).setText(User.getAddress().toString());
+((Text)UserInfo.lookup("#emergencyContact")).setText(User.getEmergencyContact().toString());
 
 			newStage = Driver.parentWindow;
-			newStage.getScene().setRoot(userInfo);
+			newStage.getScene().setRoot(UserInfo);
 
 		}
 
@@ -43,8 +43,8 @@ public class SceneViewUserInformation extends Scene {
 
 		else
 		{
-			Parent userInfo;
-			userInfo = FXMLLoader.load(getClass().getResource("Kiosk_StuInfo.fxml"));
+			Parent UserInfo;
+			UserInfo = FXMLLoader.load(getClass().getResource("Kiosk_StuInfo.fxml"));
 			Stage newStage;
 
 
@@ -55,17 +55,17 @@ public class SceneViewUserInformation extends Scene {
 
 
 
-			((Text)userInfo.lookup("#name")).setText(SceneLogIn.user.getFirstName() +
-													 SceneLogIn.user.getMiddleName() +
-													 SceneLogIn.user.getLastName());
+			((Text)UserInfo.lookup("#name")).setText(User.getFirstName() +
+													 User.getMiddleName() +
+													 User.getLastName());
 
-			((Text)userInfo.lookup("#age")).setText(String.valueOf(SceneLogIn.user.getId()));
-			((Text)userInfo.lookup("#phoneNumber")).setText(SceneLogIn.user.getPhoneNumber());
-			((Text)userInfo.lookup("#GPA")).setText(String.valueOf(SceneLogIn.user.getGpa()));
-			((Text)userInfo.lookup("#address")).setText(new Address(SceneLogIn.user.getId()).toString());
-			((Text)userInfo.lookup("#emergencyContact")).setText(SceneLogIn.user.getEmergencyContacts().toString());
+			((Text)UserInfo.lookup("#age")).setText(String.valueOf(User.getId()));
+			((Text)UserInfo.lookup("#phoneNumber")).setText(User.getPhoneNumber());
+			((Text)UserInfo.lookup("#GPA")).setText(String.valueOf(User.getGpa()));
+			((Text)UserInfo.lookup("#address")).setText(new Address(User.getId()).toString());
+			((Text)UserInfo.lookup("#emergencyContact")).setText(User.getEmergencyContact().toString());
 
-			bp.setCenter(userInfo);
+			bp.setCenter(UserInfo);
 
 			newStage = Driver.parentWindow;
 			newStage.getScene().setRoot(bp);

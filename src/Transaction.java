@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Transaction {
 	private String name;
-	private long date;
-	private double amount;
-	private double balance;
+	private String date;
+	private String amount;
+	private String balance;
 	private String transactionSemester;
 
 	Transaction()
 	{
 
 	}
-	Transaction(String name, long date, double amount, String semester)
+	Transaction(String name, String date, String amount, String semester)
 	{
 		setName(name);
 		setDate(date);
@@ -25,32 +25,28 @@ public class Transaction {
 		return true;
 	}
 	
-	public ArrayList<Transaction> getAllTransactionData()
-	{
-		return null;
-	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(long date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public double getAmount() {
+	public String getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
-	public double getBalance() {
+	public String getBalance() {
 		return balance;
 	}
-	public void setBalance(double balance) {
+	public void setBalance(String balance) {
 		this.balance = balance;
 	}
 	public String getTransactionSemester() {

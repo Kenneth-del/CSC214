@@ -15,7 +15,7 @@ public class Registration {
     public static ArrayList < ArrayList < Course >> registration = new ArrayList < ArrayList < Course >> ();
 
     public Registration(int id) throws SQLException {
-    	/*
+    	
         PreparedStatement ps;
         String query = "SELECT " +
             "h.CRN " +
@@ -32,19 +32,21 @@ public class Registration {
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
+        	
 
         	// Tests to see if Semester has already been retrieved
-            if (!semesters.contains(rs.getString(2))) {
-
+            if (!(semesters.contains(rs.getString(2)))) {
+            	
             	//If semester hasn't been recorded, it is indexed in semesters array list
                 semesters.add(rs.getString(2));
 
                 //Adds new row to to store courses from semester
                 registration.add(new ArrayList < Course > ());
-
+                
                 //Creates course object and stores it in ArrayList with same index in registration
                 //as corresponding semester does in semester ArrayList
                 registration.get(semesters.indexOf(rs.getString(2))).add(new Course(rs.getInt(1)));
+                
             } else
 
             	// Places course in ArrayList with same index as semester ArrayList
@@ -52,7 +54,6 @@ public class Registration {
         }
 
         rs.close();
-*/
     }
 
     //TODO: Decide how course information is passed to UI
@@ -65,12 +66,16 @@ public class Registration {
 
     //Should return requested course instance
     public Course getCourse(String semester, int CRN) {
-    	for(int i = 0; i <= registration.get(semesters.indexOf(semester)).size(); i++) {
+    	for(int i = 1; i <= registration.get(semesters.indexOf(semester)).size(); i++) {
     		if(registration.get(semesters.indexOf(semester)).get(i).getCRN() == CRN) {
     			return registration.get(semesters.indexOf(semester)).get(i);
     		}
     	}
     	return null;
+    }
+    
+    public ArrayList<String> getSemesters(){
+    	return semesters;
     }
 
 

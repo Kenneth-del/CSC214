@@ -23,14 +23,14 @@ public class SceneEditUserInformation {
 	public void handleSave() throws IOException, SQLException
 	{
 
-		SceneLogIn.user.setPhoneNumber(((TextField)userInfo.lookup("#phoneNumber")).getText());
-		//SceneLogIn.user.updateDBPhoneNumber(((TextField)userInfo.lookup("#phoneNumber")).getText());
-		//SceneLogIn.user.setEmailAddress(emailAddress); UI not there add or remove?
-		//SceneLogIn.user.updateDBEmailAddress();
+		User.setPhoneNumber(((TextField)userInfo.lookup("#phoneNumber")).getText());
+		//user.updateDBPhoneNumber(((TextField)userInfo.lookup("#phoneNumber")).getText());
+		//user.setEmailAddress(emailAddress); UI not there add or remove?
+		//user.updateDBEmailAddress();
 		String[] ec = ((TextField)userInfo.lookup("#emergencyContact")).getText().split(",");
 
-		SceneLogIn.user.getEmergencyContacts().updatePhoneNumber(ec[2]);
-		SceneLogIn.user.getEmergencyContacts(); //. update the rest of them need functions to update the whole contact.
+		User.getEmergencyContacts().updatePhoneNumber(ec[2]);
+		User.getEmergencyContacts(); //. update the rest of them need functions to update the whole contact.
 
 
 		SceneViewUserInformation VUI = new SceneViewUserInformation();
@@ -64,9 +64,9 @@ public class SceneEditUserInformation {
 		userInfo = FXMLLoader.load(getClass().getResource("StudInfoEdit.fxml"));
 		Stage newStage;
 
-		((TextField)userInfo.lookup("#phoneNumber")).setText(SceneLogIn.user.getPhoneNumber());
-		((TextField)userInfo.lookup("#address")).setText(new Address(SceneLogIn.user.getId()).toString());
-		((TextField)userInfo.lookup("#emergencyContact")).setText(SceneLogIn.user.getEmergencyContacts().toString());
+		((TextField)userInfo.lookup("#phoneNumber")).setText(User.getPhoneNumber());
+		((TextField)userInfo.lookup("#address")).setText(new Address(User.getId()).toString());
+		((TextField)userInfo.lookup("#emergencyContact")).setText(User.getEmergencyContacts().toString());
 
 		newStage = Driver.parentWindow;
 		newStage.getScene().setRoot(userInfo);

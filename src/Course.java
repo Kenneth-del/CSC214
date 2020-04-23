@@ -26,7 +26,7 @@ public class Course {
 	private int date;
 
 	public Course(int CRN) throws SQLException {
-		/*
+		
 		this.CRN = CRN;
 
 		PreparedStatement ps;
@@ -74,7 +74,6 @@ public class Course {
         }
 
         rs.close();
-        */
 	}
 
 	public String getCourseName() {
