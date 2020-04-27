@@ -1,3 +1,3 @@
 @echo off
-java -jar project1.jar
+java -jar Group2.jar
 exit
