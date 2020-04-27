@@ -1,6 +1,6 @@
 
-
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -70,6 +70,11 @@ public class SceneViewRegistration extends Scene {
 		SceneHome SH = new SceneHome();
 		SH.startScene();
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see Scene#startScene()
+	 * Creates a new scene with the basic required elements
+	 */
 	 void startScene() throws IOException, SQLException {
 
 		Parent userInfo;
@@ -104,11 +109,11 @@ public class SceneViewRegistration extends Scene {
 
 
 		//List Of registration details
-		 lv = new ListView<>(FXCollections.observableArrayList(User.getRegistration().getSemester(selectedSemester)));
+		 lv = new ListView<>(FXCollections.observableArrayList(User.getUserRegistration().getSemester(selectedSemester)));
 		lv.setPrefHeight(600);
 		lv.setPrefWidth(800);
 
-		ObservableList<String> items = FXCollections.observableArrayList(User.getRegistration().getSemesters());
+		ObservableList<String> items = FXCollections.observableArrayList(User.getUserRegistration().getSemesters());
 		CB.getItems().setAll(items);
 
 
@@ -123,6 +128,9 @@ public class SceneViewRegistration extends Scene {
 		newStage = Driver.parentWindow;
 		newStage.getScene().setRoot(userInfo);
 	}
+	 /*
+	  * This function sets the appropriate listview display
+	  */
 	 public void setDisplay(String semester) throws SQLException, IOException
 	 {
 		 // generate a scene, but this time with the updated information.
@@ -132,7 +140,7 @@ public class SceneViewRegistration extends Scene {
 
 			ComboBox<String> CB = new ComboBox<>();
 			CB.setMinWidth(400);
-			ObservableList<String> items = FXCollections.observableArrayList(User.getRegistration().getSemesters());
+			ObservableList<String> items = FXCollections.observableArrayList(User.getUserRegistration().getSemesters());
 			CB.getItems().setAll(items);
 			CB.setOnAction(e -> {
 				try {
@@ -158,7 +166,7 @@ public class SceneViewRegistration extends Scene {
 
 			//List Of registration details
 			 lv = new ListView<>(FXCollections.observableArrayList
-					 (User.getRegistration().getSemester(semester)));
+					 (User.getUserRegistration().getSemester(semester)));
 			lv.setPrefHeight(600);
 			lv.setPrefWidth(800);
 
@@ -178,6 +186,7 @@ public class SceneViewRegistration extends Scene {
 	/*
 	 * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
 	 * User to create a print job: https://docs.oracle.com/javase/7/docs/technotes/guides/jps/spec/jpsOverview.fm4.html
+	 * Creates and formats a PDF with user information the attempts to print that PDF
 	 */
 		public void handlePrint() throws PrintException, IOException
 		 {
@@ -204,7 +213,7 @@ public class SceneViewRegistration extends Scene {
 
 					 contentStream.showText("----------------------------------------------------------");
 					 contentStream.newLineAtOffset(0, 25);
-					 contentStream.showText(User.getRegistration().getSemester(semester));
+					 contentStream.showText(User.getUserRegistration().getSemester(semester).get(i).toString());
 				 	 contentStream.newLineAtOffset(0, 25);
 					 contentStream.showText("----------------------------------------------------------");
 
@@ -239,7 +248,11 @@ public class SceneViewRegistration extends Scene {
 
 		 }
 
-	
+	/*
+	 * If the user wants to get their class location this function
+	 * makes a new webview then displays the website that hold map for the
+	 * user to find their class.
+	 */
 	public void handleClass()
 	{
 		BorderPane mainPane = new BorderPane();

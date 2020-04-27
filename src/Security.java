@@ -11,7 +11,9 @@ import java.util.logging.Logger;
  * Adapted from code found here: https://www.geeksforgeeks.org/sha-256-hash-in-java/
  */
 public class Security {
-
+/*
+ * authenticates the user
+ */
     public static boolean authenticateUser(String UID, String UPW) throws NoSuchAlgorithmException {
     	boolean authenticated = false;
         PreparedStatement ps;
@@ -29,26 +31,39 @@ public class Security {
 
 
         if (rs.next())
-            authenticated = true;
+        {
+        	return true;
+        }
+
             else
+            {
             	System.out.println("Failed");
+            }
         }catch (SQLException ex) {
             Logger.getLogger(Security.class.getName()).log(Level.SEVERE, null, ex);
+
         }
 
         return authenticated;
     }
-
+/*
+ * creates and returns the hex value of the hashed password 
+ */
     static String SecurityHash(String password) throws NoSuchAlgorithmException {
         return toHex(hashPassword(password));
     }
 
-
+/*
+ * hashes the user password 
+ */
     private static byte[] hashPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest algo = MessageDigest.getInstance("SHA-256");
 
         return algo.digest(password.getBytes(StandardCharsets.UTF_8));
     }
+    /*
+     * takes a byte array hash an converts to hex
+     */
     private static String toHex(byte[] hash)
 
     {
@@ -62,6 +77,9 @@ public class Security {
         return hexString.toString();
     }
 
+    /*
+     * generates and returns an auth hash
+     */
     public static String getAuthHash(String UID, String UPW) throws NoSuchAlgorithmException {
         String authHash = SecurityHash(SecurityHash(UID) + SecurityHash(UPW));
         System.out.println(authHash);

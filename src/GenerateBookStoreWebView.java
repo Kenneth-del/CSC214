@@ -16,13 +16,24 @@ public class GenerateBookStoreWebView extends GenerateWebView {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see GenerateWebView#outPutWebViewObject(java.lang.String)
+	 * This function is designed to take a URL and output a webview object
+	 * It does this.
 
+	 */
 	public WebView outPutWebViewObject(String URL) {
         WebView webView = new WebView();
 		URL = "https://www.dtcc.edu/student-resources/bookstores";
 		webView.getEngine().load(URL);
 		return webView;
 	}
+
+	/*
+	 * Creates a new scene with a back button
+	 * and updates that info with the main stage
+	 */
 	void startScene()
 	{
 		BorderPane mainPane = new BorderPane();
@@ -33,6 +44,11 @@ public class GenerateBookStoreWebView extends GenerateWebView {
 		webView.getEngine().load("https://www.dtcc.edu/student-resources/bookstores");
 
 		mainPane.setCenter(webView);
+
+
+		// Button object that on click creates a new SceneHome object and calls the startScene
+		//function there.
+
 
 		Button bttn = new Button("Go Home");
 		bttn.setOnAction(new EventHandler<ActionEvent>() {

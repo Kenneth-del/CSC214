@@ -7,12 +7,14 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 public class SceneQuickHelp extends Scene {
-	
+
+	// A constructor that calls startScene
 	public SceneQuickHelp() throws IOException
 	{
 		startScene();
 	}
 
+	// creates and displays a new scene
 	@Override
 	public void startScene() throws IOException {
 		Parent userInfo;

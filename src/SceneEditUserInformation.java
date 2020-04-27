@@ -20,8 +20,12 @@ public class SceneEditUserInformation {
 	{
 
 	}
+	/*
+	 * Updates the users information in the database
+	 */
 	public void handleSave() throws IOException, SQLException
 	{
+
 
 		User.setPhoneNumber(((TextField)userInfo.lookup("#phoneNumber")).getText());
 		//user.updateDBPhoneNumber(((TextField)userInfo.lookup("#phoneNumber")).getText());
@@ -32,13 +36,16 @@ public class SceneEditUserInformation {
 		User.getEmergencyContacts().updatePhoneNumber(ec[2]);
 		User.getEmergencyContacts(); //. update the rest of them need functions to update the whole contact.
 
-
 		SceneViewUserInformation VUI = new SceneViewUserInformation();
 		VUI.isSceneReturned = true;
 		VUI.startScene();
 
 
 	}
+	/*
+	 * handles the back to home action that creates a new scene of the
+	 * previous scene loaded
+	 */
 	public void handleBackToHome() throws IOException, SQLException
 	{
 		SceneViewUserInformation VUI = new SceneViewUserInformation();
@@ -59,6 +66,9 @@ public class SceneEditUserInformation {
 	}
 
 
+/*
+ * Creates a new scene instance updating the appropriate fields with existing data
+ */
 	void startScene() throws IOException, SQLException {
 
 		userInfo = FXMLLoader.load(getClass().getResource("StudInfoEdit.fxml"));
@@ -73,4 +83,3 @@ public class SceneEditUserInformation {
 
 	}
 }
-

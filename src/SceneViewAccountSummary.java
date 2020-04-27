@@ -1,3 +1,5 @@
+
+
 import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,67 +39,62 @@ import javafx.stage.Stage;
 import org.apache.pdfbox.pdmodel.*;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-
 public class SceneViewAccountSummary extends Scene {
 	@FXML HBox LH;
-	@FXML private ListView<String> it;
-	@FXML private ListView<String> am;
-	@FXML private ListView<String> da;
-	@FXML private ListView<String> se;
 	public SceneViewAccountSummary()
 	{
 
 	}
 
 
-	ArrayList<String> transName = new ArrayList<>();
-	ArrayList<String> transDate = new ArrayList<>();
-	ArrayList<String> transAmount = new ArrayList<>();
-	ArrayList<String> transSemester = new ArrayList<>();
+	ArrayList<Transaction> transactionList = new ArrayList<>();
 
 	public void handleBack() throws IOException
 	{
 		SceneHome SH = new SceneHome();
 		SH.startScene();
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see Scene#startScene()
+	 * generates and displays a scene with a list view from the users transaction list
+	 */
 	@Override
 	void startScene() throws IOException {
-		
-//		
-//		for(int i = 0; i < User.getTransactions().size(); i++) {
-//			transName.add(User.getTransactions().get(i).getName());
-//			transDate.add(User.getTransactions().get(i).getDate());
-//			transAmount.add(User.getTransactions().get(i).getAmount());
-//			transSemester.add(User.getTransactions().get(i).getTransactionSemester());
-//		}
-//		
+
+
 		Parent userInfo;
 		userInfo = FXMLLoader.load(getClass().getResource("AccountSum.fxml"));
 		Stage newStage;
-		
-		
 
-		
 		ListView<Transaction> lv = new ListView<>(FXCollections.observableArrayList
-												 (User.getTransactions()));
-		lv.setPrefHeight(287);
-		lv.setPrefWidth(927);
+												 (SceneLogIn.user.transactionList));
+		lv.setPrefHeight(600);
+		lv.setPrefWidth(800);
 		((HBox)userInfo.lookup("#LH")).getChildren().add(lv);
-
-		
-		//it.getItems().addAll(transName);
-		
-		
-		((Text)userInfo.lookup("#AB")).setText(User.getBalance());
+		((Text)userInfo.lookup("#AB")).setText(String.valueOf(getAccountTotal()));
 		newStage = Driver.parentWindow;
 		newStage.getScene().setRoot(userInfo);
 
 	}
+	// adds the total for each line and returns the formated sum
+	private double getAccountTotal()
+	{
 
+		double balanceTotal = 0;
 
+		for (int i = 0; i < SceneLogIn.user.transactionList.size(); i++)
+		{
+
+			balanceTotal = balanceTotal + SceneLogIn.user.transactionList.get(i).getAmount();
+		}
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
+		return Double.valueOf(numberFormat.format(balanceTotal));
+	}
 	/*
 	 * Used to use PDF functions https://www.tutorialspoint.com/pdfbox/pdfbox_adding_text.htm
 	 * User to create a print job: https://docs.oracle.com/javase/7/docs/technotes/guides/jps/spec/jpsOverview.fm4.html
+	 * Creates and formats a printable pdf then attempts to print that PDF
 	 */
 	public void handlePrint() throws PrintException, IOException
 	{
@@ -142,13 +139,13 @@ public class SceneViewAccountSummary extends Scene {
 		contentStream.newLineAtOffset(10, 200);
 		PDFont font = PDType1Font.COURIER;
 		contentStream.setFont(font, 8 );
-		contentStream.showText("Total Account balance: " + User.getBalance());
-		 for (int i = User.getTransactions().size() -1 ; i >= 0; i--)
+		contentStream.showText("Total Account balance: " + getAccountTotal());
+		 for (int i = User.transactionList.size() -1 ; i >= 0; i--)
          {
 
 			 contentStream.showText("----------------------------------------------------------");
 			 contentStream.newLineAtOffset(0, 25);
-			 contentStream.showText(User.getTransactions().get(i));
+			 contentStream.showText(SceneLogIn.user.transactionList.get(i).toString());
 		 	 contentStream.newLineAtOffset(0, 25);
 			 contentStream.showText("----------------------------------------------------------");
 
@@ -183,5 +180,4 @@ public class SceneViewAccountSummary extends Scene {
 		         job.print(myDoc, aset);
 
 		 }
-
-}
+	 }

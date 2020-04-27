@@ -17,8 +17,7 @@ public class Address {
      * @param id Address ID of address being retrieved
      */
     public Address(int id) throws SQLException {
-    	addressID = id;
-        PreparedStatement ps;
+      PreparedStatement ps;
 
         String query = "SELECT * FROM Address " +
             "WHERE id =?";
@@ -36,9 +35,8 @@ public class Address {
             suite = rs.getString(3);
             state = rs.getString(6);
             city = rs.getString(5);
-            zipCode = rs.getString(7);
+        }
       }
-    }
 
     /**
      * Returns address street number
@@ -175,7 +173,7 @@ public class Address {
      */
     @Override
     public String toString() {
-        if (suite == "") {
+        if (suite == null) {
             return streetNumber + " " +
                 streetName + " " +
                 city + ", " +

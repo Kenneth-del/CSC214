@@ -6,16 +6,16 @@ public class MyConnection {
     public static Connection getConnection() {
 
         //Database url
-        String url = "jdbc:mysql://localhost/mydb";
+        String url = "jdbc:mysql://localhost/myDB?serverTimezone=UTC";
         //Database username (Only used for the program)
-        String user = "root";
+        String user = "kenneth";
         //Database password
-        String password = "root123";
+        String password = "Password123";
         //Creates connection object
         Connection con = null;
         try {
             //Loads mySQL drive
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             //Attempts to connect to database using defined credentials
             con = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {

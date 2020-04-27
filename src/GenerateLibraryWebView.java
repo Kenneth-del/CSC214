@@ -16,6 +16,10 @@ public class GenerateLibraryWebView extends GenerateWebView{
 
 	}
 
+	/*
+	 * Creates a new scene with a back button
+	 * and updates that info with the main stage
+	 */
 	void startScene() {
 		BorderPane mainPane = new BorderPane();
 
@@ -25,6 +29,9 @@ public class GenerateLibraryWebView extends GenerateWebView{
 		webView.getEngine().load("https://dlc.lib.de.us/client/en_US/DTCC/");
 
 		mainPane.setCenter(webView);
+
+		// Button object that on click creates a new SceneHome object and calls the startScene
+		//function there.
 
 		Button bttn = new Button("Go Home");
 		bttn.setOnAction(new EventHandler<ActionEvent>() {

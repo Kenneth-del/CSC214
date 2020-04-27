@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -17,6 +15,12 @@ public class SceneViewUserInformation extends Scene {
 		//startScene();
 
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see Scene#startScene()
+	 * if the scene is returned it displays a success message otherwise it displays the regular scene
+	 * This funtion creates a new scene
+	 */
 	void startScene() throws IOException, SQLException {
 
 		if (!isSceneReturned)
@@ -31,8 +35,8 @@ public class SceneViewUserInformation extends Scene {
 ((Text)UserInfo.lookup("#age")).setText(String.valueOf(User.getId()));
 ((Text)UserInfo.lookup("#phoneNumber")).setText(User.getPhoneNumber());
 ((Text)UserInfo.lookup("#GPA")).setText(String.valueOf(User.getGpa()));
-((Text)UserInfo.lookup("#address")).setText(User.getAddress().toString());
-((Text)UserInfo.lookup("#emergencyContact")).setText(User.getEmergencyContact().toString());
+((Text)UserInfo.lookup("#address")).setText(User.getStudentAddress().toString());
+((Text)UserInfo.lookup("#emergencyContact")).setText(User.getEmergencyContacts().toString());
 
 			newStage = Driver.parentWindow;
 			newStage.getScene().setRoot(UserInfo);
@@ -63,7 +67,7 @@ public class SceneViewUserInformation extends Scene {
 			((Text)UserInfo.lookup("#phoneNumber")).setText(User.getPhoneNumber());
 			((Text)UserInfo.lookup("#GPA")).setText(String.valueOf(User.getGpa()));
 			((Text)UserInfo.lookup("#address")).setText(new Address(User.getId()).toString());
-			((Text)UserInfo.lookup("#emergencyContact")).setText(User.getEmergencyContact().toString());
+			((Text)UserInfo.lookup("#emergencyContact")).setText(User.getEmergencyContacts().toString());
 
 			bp.setCenter(UserInfo);
 
